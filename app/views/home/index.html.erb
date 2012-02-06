@@ -6,7 +6,7 @@
 
   <!-- Main hero unit for a primary marketing message or call to action -->
   <div class="hero-unit">
-	<h1>degradation</h1>
+	<h1>degradation (v0.2)</h1>
 	<p>Being an experiment to see how the percieved quality of an author's work degrades the longer they write for. Try typing in an authors name</p>
 
 	<%=form_tag root_path, :method => 'get' do %>
@@ -34,7 +34,9 @@
 <div class="footer">
 <p><span class="label label-success">Sidenote</span>: Turns out I was wrong as a wrong thing. It appears that the quality of work of most authors seems to be pretty constant. Of course, I'm not a statatician, so these graphs are pretty meaningless to me.</p>
 
-<p>This program uses the <%=link_to "Goodreads", "http://www.goodreads.com/"%>. If you like books and shit, you should totally sign up with them.</p>
+<p><span class="label label-success">Technologies</span>: So, we're using Rails 3.2, The <%=link_to "Goodreads API", "http://www.goodreads.com/"%>, Google Charts, the Twitter Bootstrap CSS and Heroku.</p>
+
+<p><span class="label label-error">Bugfixes</span>: Weirdness could occur if goodreads api reported different results total to actual results returned.</p>
 
 <p>Written By <%=link_to "Sean Bamforth", "http://theguru.co.uk/"%>.</p>
 
