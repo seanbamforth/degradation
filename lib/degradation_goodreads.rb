@@ -43,15 +43,17 @@ class Degradation_goodreads
 	  insert_books(search.results.work)
 
 	  page=1
-	  while ((total_books!=search.results_end) and (page<10)) do  
+	  while ((total_books.to_i<search.results_end.to_i) and (page<10)) do  
 	  	puts "#{total_books} : #{search.results_end}"
 	  	page = page+1
 	  	search = client.search_books(author, {:field=>"author", :page=>page})
-	  	insert_books(search.results.work)
-		end
+	  	if search.results_start.to_i <= search.results_end.to_i
+		  	insert_books(search.results.work) 
+		  end
+	  end
 
-		@author.renewal = 1.days.from_now
-		@author.save 
+	  @author.renewal = 1.days.from_now
+	  @author.save 
 	end
 
 	def create_records(author)
