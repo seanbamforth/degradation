@@ -16,7 +16,7 @@
 	    <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary btn-large"  %>
 	  </p>
 
-	  <%if !@author.didyoumean.nil? and (@author.didyoumean.downcase!=params[:search].downcase) %>
+	  <%if !@author.nil? and !@author.didyoumean.nil? and (@author.didyoumean.downcase!=params[:search].downcase) %>
 		  <p><%=link_to "Did you mean #{@author.didyoumean}?", root_path(:search=>@author.didyoumean)%>
 	   <%end%>
 	<% end %>
