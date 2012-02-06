@@ -1,0 +1,43 @@
+<% content_for(:head) do %>
+	<script src='http://www.google.com/jsapi'></script>
+<%end%>
+
+<div class="container">
+
+  <!-- Main hero unit for a primary marketing message or call to action -->
+  <div class="hero-unit">
+	<h1>degradation</h1>
+	<p>Being an experiment to see how the percieved quality of an author's work degrades the longer they write for. Try typing in an authors name</p>
+
+	<%=form_tag root_path, :method => 'get' do %>
+	  <hr>
+	  <p>
+	    <%= text_field_tag :search, params[:search],  :class=>"input-large search-query"  %>
+	    <%= submit_tag "Search", :name => nil, :class=>"btn btn-primary btn-large"  %>
+	  </p>
+
+	  <%if !@author.didyoumean.nil? and (@author.didyoumean.downcase!=params[:search].downcase) %>
+		  <p><%=link_to "Did you mean #{@author.didyoumean}?", root_path(:search=>@author.didyoumean)%>
+	   <%end%>
+	<% end %>
+
+	<%if !@search.nil?%>
+		<div id="chart_div"></div>
+
+		<div id='chart'></div>
+
+		<%= render_chart(@chart, 'chart') %>
+		
+	<%end%>
+</div>
+
+<div class="footer">
+<p><span class="label label-success">Sidenote</span>: Turns out I was wrong as a wrong thing. It appears that the quality of work of most authors seems to be pretty constant. Of course, I'm not a statatician, so these graphs are pretty meaningless to me.</p>
+
+<p>This program uses the <%=link_to "Goodreads", "http://www.goodreads.com/"%>. If you like books and shit, you should totally sign up with them.</p>
+
+<p>Written By <%=link_to "Sean Bamforth", "http://theguru.co.uk/"%>.</p>
+
+</div>
+
+	

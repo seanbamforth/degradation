@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  renewal: 2012-02-05 12:41:23
+  didyoumean: MyString
+
+two:
+  name: MyString
+  renewal: 2012-02-05 12:41:23
+  didyoumean: MyString
