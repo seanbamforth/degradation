@@ -2,7 +2,7 @@ require 'goodreads'
 class Degradation_goodreads
 
 	def initialize
-		Goodreads.configure({:api_key => "qeYGfb1f0koITL63hz4IA"})
+		Goodreads.configure({:api_key => ENV["goodreads_api_key"]})
 	end
 
 	def insert_books(work)
